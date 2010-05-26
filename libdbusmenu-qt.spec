@@ -17,7 +17,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 This library provides a Qt implementation of the DBusMenu spec.
 
 %description -l pl.UTF-8
-Ta biblioteka dostarcza implementacje Qt specyfikacji DBusMenu.
+Ta biblioteka dostarcza implementację Qt specyfikacji DBusMenu.
 
 %package devel
 Summary:	Header files for dbusmenu-qt library
