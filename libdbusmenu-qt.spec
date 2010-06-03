@@ -9,8 +9,12 @@ Group:		Applications
 Source0:	http://people.canonical.com/~agateau/dbusmenu/%{name}-%{version}.tar.bz2
 # Source0-md5:	5c0628166e50325bb7e9babdf280755a
 URL:		http://people.canonical.com/~agateau/dbusmenu/
+BuildRequires:	QtCore-devel
 BuildRequires:	cmake >= 2.8.0
+BuildRequires:	libstdc++-devel
 BuildRequires:	pkgconfig
+BuildRequires:	qt4-build
+BuildRequires:	qt4-qmake
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -67,4 +71,4 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libdbusmenu-qt.so
 %{_includedir}/dbusmenu-qt
-%{_libdir}/pkgconfig/dbusmenu-qt.pc
+%{_pkgconfigdir}/dbusmenu-qt.pc
