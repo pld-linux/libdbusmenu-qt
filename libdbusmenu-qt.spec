@@ -3,7 +3,7 @@ Summary:	Qt implementation of the DBusMenu spec
 Summary(pl.UTF-8):	Implementacja Qt specyfikacji DBusMenu
 Name:		libdbusmenu-qt
 Version:	0.6.0
-Release:	1
+Release:	2
 License:	GPL
 Group:		Applications
 # Source0:	http://people.canonical.com/~agateau/dbusmenu/%{name}-%{version}.tar.bz2
@@ -14,6 +14,7 @@ BuildRequires:	QtCore-devel
 BuildRequires:	cmake >= 2.8.0
 BuildRequires:	libstdc++-devel
 BuildRequires:	pkgconfig
+BuildRequires:	qjson-devel >= 0.7.1
 BuildRequires:	qt4-build
 BuildRequires:	qt4-qmake
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
