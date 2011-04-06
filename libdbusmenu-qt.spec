@@ -2,13 +2,13 @@
 Summary:	Qt implementation of the DBusMenu spec
 Summary(pl.UTF-8):	Implementacja Qt specyfikacji DBusMenu
 Name:		libdbusmenu-qt
-Version:	0.6.0
-Release:	2
+Version:	0.8.1
+Release:	1
 License:	GPL
 Group:		Applications
 # Source0:	http://people.canonical.com/~agateau/dbusmenu/%{name}-%{version}.tar.bz2
 Source0:	http://launchpad.net/libdbusmenu-qt/trunk/%{version}/+download/%{name}-%{version}.tar.bz2
-# Source0-md5:	327d2b401f06b41f92250278cdb1b4e8
+# Source0-md5:	495bf59b9fcc00e4260fd5acbb21b78b
 URL:		http://people.canonical.com/~agateau/dbusmenu/
 BuildRequires:	QtCore-devel
 BuildRequires:	cmake >= 2.8.0
@@ -36,6 +36,17 @@ Header files for dbusmenu-qt library.
 
 %description devel -l pl.UTF-8
 Pliki nagłówkowe biblioteki dbusmenu-qt.
+
+%package apidocs
+Summary:	dbusmenu-qt API documentation
+Summary(pl.UTF-8):	Dokumentacja API biblioteki dbusmenu-qt
+Group:		Documentation
+
+%description apidocs
+API and internal documentation for dbusmenu-qt library.
+
+%description apidocs -l pl.UTF-8
+Dokumentacja API biblioteki dbusmenu-qt.
 
 %prep
 %setup -q
@@ -74,3 +85,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/libdbusmenu-qt.so
 %{_includedir}/dbusmenu-qt
 %{_pkgconfigdir}/dbusmenu-qt.pc
+
+%files apidocs
+%defattr(644,root,root,755)
+%{_docdir}/dbusmenu-qt
