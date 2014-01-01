@@ -1,22 +1,25 @@
-#
 Summary:	Qt implementation of the DBusMenu spec
 Summary(pl.UTF-8):	Implementacja Qt specyfikacji DBusMenu
 Name:		libdbusmenu-qt
-Version:	0.8.1
-Release:	2
-License:	GPL
-Group:		Applications
-# Source0:	http://people.canonical.com/~agateau/dbusmenu/%{name}-%{version}.tar.bz2
-Source0:	http://launchpad.net/libdbusmenu-qt/trunk/%{version}/+download/%{name}-%{version}.tar.bz2
-# Source0-md5:	495bf59b9fcc00e4260fd5acbb21b78b
-URL:		http://people.canonical.com/~agateau/dbusmenu/
-BuildRequires:	QtCore-devel
+Version:	0.9.2
+Release:	1
+License:	LGPL v2+
+Group:		Libraries
+Source0:	https://launchpad.net/libdbusmenu-qt/trunk/%{version}/+download/%{name}-%{version}.tar.bz2
+# Source0-md5:	9a49484927669cd2ec91b3bf9ba8b79e
+URL:		https://launchpad.net/libdbusmenu-qt/
+BuildRequires:	QtCore-devel >= 4
+BuildRequires:	QtDBus-devel >= 4
+# for <QtGui/QKeySequence>
+BuildRequires:	QtGui-devel >= 4
 BuildRequires:	cmake >= 2.8.0
+BuildRequires:	doxygen
 BuildRequires:	libstdc++-devel
 BuildRequires:	pkgconfig
 BuildRequires:	qjson-devel >= 0.7.1
-BuildRequires:	qt4-build
-BuildRequires:	qt4-qmake
+BuildRequires:	qt4-build >= 4
+BuildRequires:	qt4-qmake >= 4
+BuildRequires:	rpmbuild(macros) >= 1.605
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -30,6 +33,8 @@ Summary:	Header files for dbusmenu-qt library
 Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki dbusmenu-qt
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
+Requires:	QtCore-devel >= 4
+Requires:	QtDBus-devel >= 4
 
 %description devel
 Header files for dbusmenu-qt library.
@@ -43,7 +48,7 @@ Summary(pl.UTF-8):	Dokumentacja API biblioteki dbusmenu-qt
 Group:		Documentation
 
 %description apidocs
-API and internal documentation for dbusmenu-qt library.
+API documentation for dbusmenu-qt library.
 
 %description apidocs -l pl.UTF-8
 Dokumentacja API biblioteki dbusmenu-qt.
@@ -54,12 +59,7 @@ Dokumentacja API biblioteki dbusmenu-qt.
 %build
 install -d build
 cd build
-%cmake .. \
-	-DCMAKE_BUILD_TYPE=%{!?debug:Release}%{?debug:Debug} \
-	-DCMAKE_INSTALL_PREFIX=%{_prefix} \
-%if "%{_lib}" == "lib64"
-	-DLIB_SUFFIX=64
-%endif
+%cmake ..
 
 %{__make}
 
@@ -77,6 +77,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
+%doc NEWS README
 %attr(755,root,root) %{_libdir}/libdbusmenu-qt.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libdbusmenu-qt.so.2
 
