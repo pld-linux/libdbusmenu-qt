@@ -85,7 +85,7 @@ Ta biblioteka dostarcza implementację Qt5 specyfikacji DBusMenu.
 Summary:	Header files for dbusmenu-qt library
 Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki dbusmenu-qt
 Group:		Development/Libraries
-Requires:	%{name} = %{version}-%{release}
+Requires:	libdbusmenu-qt5 = %{version}-%{release}
 Requires:	Qt5Core-devel >= 5
 Requires:	Qt5DBus-devel >= 5
 
