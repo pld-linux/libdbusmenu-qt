@@ -5,7 +5,7 @@ Summary:	Qt implementation of the DBusMenu spec
 Summary(pl.UTF-8):	Implementacja Qt specyfikacji DBusMenu
 Name:		libdbusmenu-qt
 Version:	0.9.3
-Release:	0.20150604.1
+Release:	0.20150604.2
 License:	LGPL v2+
 Group:		Libraries
 Source0:	%{name}_%{version}+15.10.20150604.orig.tar.gz
@@ -60,6 +60,9 @@ Pliki nagłówkowe biblioteki dbusmenu-qt.
 Summary:	dbusmenu-qt API documentation
 Summary(pl.UTF-8):	Dokumentacja API biblioteki dbusmenu-qt
 Group:		Documentation
+%if "%{_rpmversion}" >= "5"
+BuildArch:	noarch
+%endif
 
 %description apidocs
 API documentation for dbusmenu-qt library.
@@ -85,9 +88,9 @@ Ta biblioteka dostarcza implementację Qt5 specyfikacji DBusMenu.
 Summary:	Header files for dbusmenu-qt library
 Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki dbusmenu-qt
 Group:		Development/Libraries
-Requires:	libdbusmenu-qt5 = %{version}-%{release}
 Requires:	Qt5Core-devel >= 5
 Requires:	Qt5DBus-devel >= 5
+Requires:	libdbusmenu-qt5 = %{version}-%{release}
 
 %description -n libdbusmenu-qt5-devel
 Header files for dbusmenu-qt5 library.
